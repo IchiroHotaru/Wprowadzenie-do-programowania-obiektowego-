@@ -1,0 +1,45 @@
+import java.util.Set;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class ZajeciaDrugie {
+
+    static Scanner userInput = new Scanner(System.in);
+
+    static Set<String> employeeList = new TreeSet<String>();
+
+    static Set employeeDataInput() {
+
+        for (int a = 0; a < 5; a++) {
+            System.out.println("Enter your name: ");
+            String name = userInput.nextLine();
+
+            System.out.println("Enter your surname: ");
+            String surname = userInput.nextLine();
+
+            System.out.println(name + " " + surname);
+
+            String employeeData = name + "." + surname + "@mex.com";
+
+            int i = 0;
+
+            while (employeeList.contains(employeeData)) {
+
+                employeeData = name + "." + surname + i + "@mex.com";
+                i++;
+                employeeData = name + "." + surname + i + "@mex.com";
+            }
+
+
+            employeeList.add(employeeData);
+            System.out.println(employeeList);
+        }
+        return employeeList;
+    }
+
+    public static void main(String args[]) {
+
+        employeeDataInput();
+
+    }
+}
